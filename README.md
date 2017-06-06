@@ -8,7 +8,7 @@ Take a nested Javascript object and flatten it, or unflatten an object with deli
 $ npm install flat
 ```
 
-## Methods
+## API
 
 ### flatten(original, options)
 
@@ -159,4 +159,20 @@ flatten({
 //   'key2.keyB': 'valueII',
 //   'key3.a': { b: { c: 2 } }
 // }
+```
+
+## Tests
+
+```bash
+npm test
+firefox coverage/lcov-report/index.html
+```
+
+### Coverage
+
+```
+Statements   : 100% ( 56/56 )
+Branches     : 98.11% ( 52/53 )
+Functions    : 100% ( 4/4 )
+Lines        : 100% ( 56/56 )
 ```
