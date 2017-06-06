@@ -1,11 +1,11 @@
-# flat [![Build Status](https://secure.travis-ci.org/achselschweisz/flat.png?branch=master)](http://travis-ci.org/achselschweisz/flat)
+# even-flatter [![Build Status](https://secure.travis-ci.org/achselschweisz/even-flatter.png?branch=master)](http://travis-ci.org/achselschweisz/even-flatter)
 
 Take a nested Javascript object and flatten it, or unflatten an object with delimited keys.
 
 ## Installation
 
 ```bash
-$ npm install flat
+$ npm install even-flatter
 ```
 
 ## API
@@ -18,7 +18,7 @@ $ npm install flat
 Flattens the object - it'll return an object one level deep, regardless of how nested the original object was:
 
 ```javascript
-var flatten = require('flat').flatten;
+var flatten = require('even-flatter').flatten;
 
 flatten({
     key1: {
@@ -45,7 +45,7 @@ flatten({
 Flattening is reversible too, you can call `flatten.unflatten()` on an object:
 
 ```javascript
-var unflatten = require('flat').unflatten
+var unflatten = require('even-flatter').unflatten
 
 unflatten({
     'three.levels.deep': 42,
@@ -75,7 +75,7 @@ Use a custom delimiter for (un)flattening your objects, instead of `.`.
 When enabled, both `flat` and `unflatten` will preserve arrays and their contents. This is disabled by default.
 
 ```javascript
-const flatten = require('flat').flatten;
+const flatten = require('even-flatter').flatten;
 
 flatten({
     this: [
@@ -103,7 +103,7 @@ flatten({
 When enabled, arrays will not be created automatically when calling unflatten, like so:
 
 ```javascript
-const unflatten = require('flat').unflatten;
+const unflatten = require('even-flatter').unflatten;
 
 unflatten({
   'hello.you.0': 'ipsum',
@@ -127,7 +127,7 @@ unflatten({
 When enabled, existing keys in the unflattened object may be overwritten if they cannot hold a newly encountered nested value:
 
 ```javascript
-const unflatten = require('flat').unflatten;
+const unflatten = require('even-flatter').unflatten;
 
 unflatten({
     'TRAVIS': 'true',
@@ -150,7 +150,7 @@ This only makes sense on ordered arrays, and since we're overwriting data, shoul
 Maximum number of nested objects to flatten.
 
 ```javascript
-const flatten = require('flat');
+const flatten = require('even-flatter');
 
 flatten({
     key1: {
@@ -176,7 +176,7 @@ flatten({
 Provide a list of object keys which will note be flattened.
 
 ```javascript
-var flatten = require('flat').flatten;
+var flatten = require('even-flatter').flatten;
 
 flatten({
     foo: {
