@@ -173,7 +173,9 @@ flatten({
 
 ### noFlattenKeys
 
-Provide a list of object keys which will note be flattened.
+`flatten` function only.
+
+Provide a list of (object) keys which will not be flattened. _Nested keys_ must contain the same delimiter as configured for the flattening action.
 
 ```javascript
 var flatten = require('even-flatter').flatten;
