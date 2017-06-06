@@ -294,10 +294,33 @@ suite('Unflatten', function() {
     });
 
     test('if no overwrite, should ignore nested values under non-object key', function() {
-      assert.deepEqual(flat.unflatten({a: null, 'a.b': 'c'}), {a: null});
-      assert.deepEqual(flat.unflatten({a: 0, 'a.b': 'c'}), {a: 0});
-      assert.deepEqual(flat.unflatten({a: 1, 'a.b': 'c'}), {a: 1});
-      assert.deepEqual(flat.unflatten({a: '', 'a.b': 'c'}), {a: ''});
+      assert.deepEqual(flat.unflatten({
+        a: null,
+        'a.b': 'c'
+      }), {
+        a: null
+      });
+
+      assert.deepEqual(flat.unflatten({
+        a: 0,
+        'a.b': 'c'
+      }), {
+        a: 0
+      });
+
+      assert.deepEqual(flat.unflatten({
+        a: 1,
+        'a.b': 'c'
+      }), {
+        a: 1
+      });
+
+      assert.deepEqual(flat.unflatten({
+        a: '',
+        'a.b': 'c'
+      }), {
+        a: ''
+      });
     });
   });
 
