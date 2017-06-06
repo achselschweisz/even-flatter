@@ -35,7 +35,7 @@
   "homepage": "https://github.com/achselschweisz/flat",
   "scripts": {
     "lint": "eslint ./",
-    "test": "npm run lint && nyc --reporter=lcov --reporter=text --reporter=text-summary _mocha ./test/test-*.js",
+    "test": "npm run lint && nyc --reporter=lcov --reporter=text --reporter=text-summary _mocha ./test/test*.js",
     "clean": "rm -rf node_modules/ && rm -rf coverage/ && rm -rf .nyc_output/ && rm -f npm-debug.log"
   }
 }
