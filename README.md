@@ -1,11 +1,10 @@
-# flat [![Build Status](https://secure.travis-ci.org/hughsk/flat.png?branch=master)](http://travis-ci.org/hughsk/flat)
+# flat [![Build Status](https://secure.travis-ci.org/achselschweisz/flat.png?branch=master)](http://travis-ci.org/achselschweisz/flat)
 
-Take a nested Javascript object and flatten it, or unflatten an object with
-delimited keys.
+Take a nested Javascript object and flatten it, or unflatten an object with delimited keys.
 
 ## Installation
 
-``` bash
+```bash
 $ npm install flat
 ```
 
@@ -13,10 +12,12 @@ $ npm install flat
 
 ### flatten(original, options)
 
-Flattens the object - it'll return an object one level deep, regardless of how
-nested the original object was:
+- `@param {Object} original`
+- `@param {?Object=} options` @see [Options](#options
 
-``` javascript
+Flattens the object - it'll return an object one level deep, regardless of how nested the original object was:
+
+```javascript
 var flatten = require('flat')
 
 flatten({
@@ -38,9 +39,12 @@ flatten({
 
 ### unflatten(original, options)
 
+- `@param {Object} original`
+- `@param {?Object=} options` @see [Options](#options)
+
 Flattening is reversible too, you can call `flatten.unflatten()` on an object:
 
-``` javascript
+```javascript
 var unflatten = require('flat').unflatten
 
 unflatten({
@@ -60,7 +64,7 @@ unflatten({
 // }
 ```
 
-## Options
+## []()Options
 
 ### delimiter
 
@@ -68,10 +72,9 @@ Use a custom delimiter for (un)flattening your objects, instead of `.`.
 
 ### safe
 
-When enabled, both `flat` and `unflatten` will preserve arrays and their
-contents. This is disabled by default.
+When enabled, both `flat` and `unflatten` will preserve arrays and their contents. This is disabled by default.
 
-``` javascript
+```javascript
 var flatten = require('flat')
 
 flatten({
@@ -99,7 +102,7 @@ flatten({
 
 When enabled, arrays will not be created automatically when calling unflatten, like so:
 
-``` javascript
+```javascript
 unflatten({
     'hello.you.0': 'ipsum',
     'hello.you.1': 'lorem',
@@ -134,12 +137,11 @@ Without `overwrite` set to `true`, the `TRAVIS` key would already have been set 
 
 This only makes sense on ordered arrays, and since we're overwriting data, should be used with care.
 
-
 ### maxDepth
 
 Maximum number of nested objects to flatten.
 
-``` javascript
+```javascript
 var flatten = require('flat')
 
 flatten({
