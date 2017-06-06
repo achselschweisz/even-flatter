@@ -18,7 +18,7 @@ $ npm install flat
 Flattens the object - it'll return an object one level deep, regardless of how nested the original object was:
 
 ```javascript
-var flatten = require('flat')
+var flatten = require('flat').flatten;
 
 flatten({
     key1: {
@@ -75,7 +75,7 @@ Use a custom delimiter for (un)flattening your objects, instead of `.`.
 When enabled, both `flat` and `unflatten` will preserve arrays and their contents. This is disabled by default.
 
 ```javascript
-var flatten = require('flat')
+const flatten = require('flat').flatten;
 
 flatten({
     this: [
@@ -86,7 +86,7 @@ flatten({
     ]
 }, {
     safe: true
-})
+});
 
 // {
 //     'this': [
@@ -103,11 +103,15 @@ flatten({
 When enabled, arrays will not be created automatically when calling unflatten, like so:
 
 ```javascript
+const unflatten = require('flat').unflatten;
+
 unflatten({
-    'hello.you.0': 'ipsum',
-    'hello.you.1': 'lorem',
-    'hello.other.world': 'foo'
-}, { object: true })
+  'hello.you.0': 'ipsum',
+  'hello.you.1': 'lorem',
+  'hello.other.world': 'foo'
+}, {
+  object: true
+});
 
 // hello: {
 //     you: {
@@ -123,10 +127,14 @@ unflatten({
 When enabled, existing keys in the unflattened object may be overwritten if they cannot hold a newly encountered nested value:
 
 ```javascript
+const unflatten = require('flat').unflatten;
+
 unflatten({
     'TRAVIS': 'true',
     'TRAVIS_DIR': '/home/travis/build/kvz/environmental'
-}, { overwrite: true })
+}, {
+  overwrite: true
+});
 
 // TRAVIS: {
 //     DIR: '/home/travis/build/kvz/environmental'
@@ -142,7 +150,7 @@ This only makes sense on ordered arrays, and since we're overwriting data, shoul
 Maximum number of nested objects to flatten.
 
 ```javascript
-var flatten = require('flat')
+const flatten = require('flat');
 
 flatten({
     key1: {
@@ -152,12 +160,57 @@ flatten({
         keyB: 'valueII'
     },
     key3: { a: { b: { c: 2 } } }
-}, { maxDepth: 2 })
+}, {
+  maxDepth: 2
+});
 
 // {
 //   'key1.keyA': 'valueI',
 //   'key2.keyB': 'valueII',
 //   'key3.a': { b: { c: 2 } }
+// }
+```
+
+### noFlattenKeys
+
+Provide a list of object keys which will note be flattened.
+
+```javascript
+var flatten = require('flat').flatten;
+
+flatten({
+    foo: {
+        bar: 'valueI',
+        foo: {
+          barfoo: true
+        }
+    },
+    cider: {
+        colour: 'yellow',
+        apples: {
+          colour: 'green',
+          mouldy: 'probably'
+        },
+        yellow: 'snow'
+    }
+}, {
+  noFlattenKeys: ['foo', 'cider.apples']
+});
+
+
+// {
+//   foo: {
+//     bar: 'valueI',
+//     foo: {
+//       barfoo: true
+//     }
+//   },
+//   'cider.colour': 'yellow',
+//   'cider.apples': {
+//     colour: 'green',
+//     mouldy: 'probably'
+//   },
+//   'cider.yellow': 'snow'
 // }
 ```
 
