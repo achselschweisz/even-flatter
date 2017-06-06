@@ -13,7 +13,7 @@ $ npm install flat
 ### flatten(original, options)
 
 - `@param {Object} original`
-- `@param {?Object=} options` @see [Options](#options
+- `@param {?Object=} options` @see [Options](#options)
 
 Flattens the object - it'll return an object one level deep, regardless of how nested the original object was:
 
