@@ -1,5 +1,5 @@
 {
-  "name": "flat",
+  "name": "even-flatter",
   "version": "3.0.0",
   "main": "index.js",
   "license": "BSD-3-Clause",
@@ -19,6 +19,7 @@
   },
   "keywords": [
     "flat",
+    "even-flatter",
     "json",
     "flatten",
     "unflatten",
@@ -26,11 +27,14 @@
     "object",
     "nested"
   ],
-  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com)",
+  "author": "Christopher Blasnik <christopher.blasnik+labs@magora.com",
+  "contributors": [
+    "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com)"
+  ],
   "bugs": {
-    "url": "https://github.com/achselschweisz/flat/issues"
+    "url": "https://github.com/achselschweisz/even-flatter/issues"
   },
-  "homepage": "https://github.com/achselschweisz/flat",
+  "homepage": "https://github.com/achselschweisz/even-flatter",
   "scripts": {
     "lint": "eslint ./",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text --reporter=text-summary _mocha ./test/test*.js",
