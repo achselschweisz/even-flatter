@@ -1,14 +1,11 @@
 {
   "name": "flat",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha -u tdd --reporter spec"
-  },
   "license": "BSD-3-Clause",
   "description": "Take a nested Javascript object and flatten it, or unflatten an object with delimited keys",
   "devDependencies": {
-    "mocha": "~2.4.5"
+    "mocha": "3.4.2"
   },
   "directories": {
     "test": "test"
@@ -18,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hughsk/flat.git"
+    "url": "git://github.com/achselschweisz/flat.git"
   },
   "keywords": [
     "flat",
@@ -31,7 +28,12 @@
   ],
   "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com)",
   "bugs": {
-    "url": "https://github.com/hughsk/flat/issues"
+    "url": "https://github.com/achselschweisz/flat/issues"
   },
-  "homepage": "https://github.com/hughsk/flat"
+  "homepage": "https://github.com/achselschweisz/flat",
+  "scripts": {
+    "lint": "eslint ./",
+    "test": "npm run lint && nyc --reporter=lcov --reporter=text --reporter=text-summary _mocha ./test/test-*.js",
+    "clean": "rm -rf node_modules/ && rm -rf coverage/ && rm -rf .nyc_output/ && rm -f npm-debug.log"
+  }
 }
